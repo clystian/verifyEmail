@@ -44,6 +44,7 @@ function verifyEmail($toemail, $fromemail, $getdetails = false){
 		if(preg_match("/^220/i", $out = fgets($connect, 1024))){
 			fputs ($connect , "HELO $mx_ip\r\n"); 
 			$out = fgets ($connect, 1024);
+			$details="";
 			$details .= $out."\n";
  
 			fputs ($connect , "MAIL FROM: <$fromemail>\r\n"); 
